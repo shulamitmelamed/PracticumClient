@@ -1,1 +1,91 @@
-<p>form works!</p>
+<form (ngSubmit)="send();myForm.reset()" #myForm="ngForm">
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>FirstName</mat-label>
+        <input type="text" matInput name="fName" required [(ngModel)]="userSer.myUser.FirstName"
+            [ngModelOptions]="{standalone:true}" />
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>LastName</mat-label>
+        <input matInput name="lName" required [(ngModel)]="userSer.myUser.LastName" (blur)="onWritingName()" type="text" />
+    </mat-form-field>
+    <mat-form-field color="accent" background-color="#eecedb" appearance="fill">
+        <mat-label>Id Number</mat-label>
+        <input type="text" matInput name="idNum" required minlength="9" maxlength="9" [(ngModel)]="userSer.myUser.IdNumber">
+        <mat-error *ngIf="idFormControl.hasError('required')">
+            ID number has to be <strong>9</strong> digits
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent" appearance="fill" class="example-full-width input-small-size d-block">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput type="datetime" [(ngModel)]="userSer.myUser.DateOfBirth" name="birthD"
+            [matDatepicker]="picker1" required>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" color="accent">
+        <mat-label for="g1" for="g2" name="gender" [(ngModel)]="userSer.myUser.Gender" #g='ngModel' ngDefaultControl>
+            choose your gender</mat-label>
+        <input matInput name="gender" id="g" placeholder="" required [(ngModel)]="userSer.myUser.Gender" #bd='ngModel'>
+        <mat-radio-group aria-label="Select an option" name="gender" for="g1" for="g2"
+            [(ngModel)]="userSer.myUser.Gender" aria-required="true">
+            <div>
+                <mat-radio-button id="g1" name="gender" value="1">male</mat-radio-button>
+                <mat-radio-button id="g2" name="gender" value="2">female</mat-radio-button>
+            </div>
+        </mat-radio-group>
+        <!-- <mat-icon matSuffix class="material-icons">sentiment_very_satisfied</mat-icon> -->
+        <mat-hint *ngIf="g.touched&&g.errors&&g.errors.required">choosing your gender is required</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill" color="accent">
+        <mat-label>HMO</mat-label>
+        <mat-select [(ngModel)]="userSer.myUser.HMO" name="hmo" required>
+            <mat-option value="1">Maccabi</mat-option>
+            <mat-option value="2">Meuhedet</mat-option>
+            <mat-option value="3">Klalit</mat-option>
+            <mat-option value="4">Leumit</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!-- <div *ngIf="myForm.valid">
+        <button (click)="isAddChild=true" >click here to add child</button>
+    </div> -->
+    <form  #childForm="ngForm" id="cf"
+        (submit)="saveChild(fname.value,idnumber.value,datebirth.value);childForm.reset()">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Add your children's detailes</mat-card-title>
+                <mat-card-subtitle>as much as you have</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>FirstName</mat-label>
+                    <input type="text" matInput #fname />
+                </mat-form-field>
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>Id Number</mat-label>
+                    <input matInput minlength="9" maxlength="9" [formControl]="idFormControl" type="text" #idnumber>
+                    <mat-error *ngIf="idFormControl.hasError('required')">
+                        ID number has to be <strong>9</strong> digits
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field color="accent" appearance="fill" class="example-full-width input-small-size d-block">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput type="datetime" #datebirth [matDatepicker]="picker2">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" [disabled]="!childForm.valid" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+                    <mat-icon>plus_one</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+    <div>
+        <button mat-raised-button color="primary" (click)="nav()">instructions</button>
+        <button type="submit" mat-raised-button color="primary" >send</button>
+    </div>
+</form>

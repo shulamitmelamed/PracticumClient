@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Name from '../models/Name';
 
 @Component({
   selector: 'app-father',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class FatherComponent implements OnInit {
 
   constructor() { }
-
+  empty: Name[] = [new Name("", "")]
+  onWriting(data: Name) {
+    this.empty[0] = data
+  }
   ngOnInit(): void {
   }
 

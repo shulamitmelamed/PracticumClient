@@ -1,0 +1,67 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    // background-color: #eecedb;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+form[_ngcontent-wyl-c111] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body {
+    align-items: center;
+}
+[_nghost-nht-c87] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mat-form-field-infix {
+    border-top: 0.84375em solid transparent;
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary{
+    background-color: rgb(247, 118, 150);
+    margin: 5px;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    color: accent;
+    background-color: #ed6f9140;
+}
+.mat-form-field-flex ng-tns-c69-0{
+    background-color: #ed6f9140;
+}
+.mat-form-field-wrapper ng-tns-c69-0{
+    background-color: #ed6f9140;
+}
+mat-card-content{
+    display: flex;
+    flex-direction: column;
+}
+#cf{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div{
+    display: flex;
+    justify-content:center;
+}
+
+mat-card-actions{
+    display: flex;
+    justify-content: center;
+}
+mat-radio-button{
+    margin: 5px;
+}
+

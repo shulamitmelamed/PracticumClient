@@ -1,0 +1,23 @@
+body{
+    display: flex;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+mat-card{
+    display: flex;
+    width: 25%;
+    height: 400px;
+    text-align: center;
+    margin: 60px;
+    background-color:rgb(236, 126, 163);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size:xx-large;
+}
+.mat-card-subtitle, .mat-card-content {
+    font-size: 30px;
+}

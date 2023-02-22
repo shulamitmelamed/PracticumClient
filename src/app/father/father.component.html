@@ -1,1 +1,3 @@
-<p>father works!</p>
+<app-guidelines *ngFor="let x of empty" [myName]="x"></app-guidelines>
+<app-form (writeName)="onWriting($event)"></app-form>
+
