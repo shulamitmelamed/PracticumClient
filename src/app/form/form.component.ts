@@ -64,5 +64,7 @@ export class FormComponent implements OnInit {
   getFloatLabelValue(): FloatLabelType {
     return this.floatLabelControl.value || 'auto';
   }
-
+  downloadToExel(){
+    
+  }
 }
